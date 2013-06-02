@@ -1,0 +1,32 @@
+Source: rust
+Section: devel
+Priority: optional
+Maintainer: Andreas Karlsson <andreas@proxel.se>
+Build-Depends: debhelper (>= 8.0.0), autotools-dev, python (>= 2.7), make (>= 3.81), git (>= 1.7), g++ (>= 4.4), curl, pandoc (>= 1.8), texlive-latex-recommended
+Standards-Version: 3.9.4
+Vcs-Git: git://github.com/jeltz/rust-debian-package.git
+Vcs-Browser: https://github.com/jeltz/rust-debian-package
+Homepage: http://www.rust-lang.org/
+
+Package: rust
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Recommends: rust-mode
+Suggests: rust-doc
+Description: Compiler for the Rust programming language
+ The compiler and run-time libraries for the Rust programming language.
+
+Package: rust-doc
+Architecture: all
+Section: doc
+Depends: ${misc:Depends}
+Description: documentation for Rust
+ Documentation for the Rust programming language in HTML and PDF formats. 
+
+Package: rust-mode
+Architecture: all
+Depends: emacs23 | emacsen, ${misc:Depends}
+Suggests: rust
+Description: Rust mode for Emacs
+ This package provides a GNU Emacs major mode for editing code in the Rust
+ programming language.

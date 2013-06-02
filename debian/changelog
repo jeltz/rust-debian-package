@@ -1,0 +1,5 @@
+rust (0.6-1) unstable; urgency=low
+
+  * Initial release (Closes: #689207)
+
+ -- Andreas Karlsson <andreas@proxel.se>  Sun, 02 Jun 2013 12:21:49 +0200

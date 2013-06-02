@@ -1,0 +1,20 @@
+#!/usr/bin/make -f
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+# This has to be exported to make some magic below work.
+export DH_OPTIONS
+
+%:
+	dh $@
+
+override_dh_auto_configure:
+	./configure --prefix=/usr --build-triple=$(DEB_BUILD_GNU_CPU)-unknown-$(DEB_BUILD_GNU_SYSTEM)
+
+override_dh_auto_clean:
+	rm -rf dl llvm rt rustllvm tmp *-linux-gnu
+	rm -f doc/rust.out doc/rust.tex doc/*/rust.css
+	rm -f src/llvm/utils/llvm-build/llvmbuild/*.pyc
+	if [ -f Makefile ]; then $(MAKE) clean; fi
+	dh_clean Makefile config.mk config.tmp config.stamp

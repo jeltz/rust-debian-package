@@ -1,0 +1,3 @@
+version=3
+
+https://github.com/mozilla/rust/tags .*/release-(\d[\d\.]*)\.tar\.gz
